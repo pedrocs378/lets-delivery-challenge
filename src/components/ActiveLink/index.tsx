@@ -1,4 +1,4 @@
-import { LinkProps, useHistory } from 'react-router-dom'
+import { LinkProps, useRouteMatch } from 'react-router-dom'
 
 import { Container } from './styles'
 
@@ -6,12 +6,12 @@ type ActiveLinkProps = LinkProps
 
 export function ActiveLink({ children, ...rest }: ActiveLinkProps) {
 
-	const { location } = useHistory()
+	const match = useRouteMatch(`${rest.to}`)
 
 	return (
 		<Container
 			{...rest}
-			isActive={location.pathname === rest.to}
+			isActive={!!match?.isExact}
 		>
 			{children}
 		</Container>
