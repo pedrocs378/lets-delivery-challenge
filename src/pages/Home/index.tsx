@@ -22,7 +22,6 @@ type Character = {
 	name: string
 	gender: string
 	image: string
-	isFavorited: boolean
 }
 
 type CharacterResponse = {
@@ -42,8 +41,6 @@ export function Home() {
 	const [isLoading, setIsLoading] = useState(false)
 	const [notFounded, setNotFounded] = useState(false)
 
-	const { favorites } = useFavorites()
-
 	async function handleSearchCharacters(event: FormEvent) {
 		event.preventDefault()
 
@@ -57,20 +54,8 @@ export function Home() {
 
 			const response = await api.get<CharacterResponse>(`/character/?name=${searchText}`)
 
-			const resultsParsed = response.data.results.map(character => {
-				return {
-					...character,
-					isFavorited: favorites.some(favoriteCharacter => favoriteCharacter.id === character.id)
-				}
-			})
-
-			const newData = {
-				...response.data,
-				results: resultsParsed
-			}
-
 			setSearchedText(searchText)
-			setCharacters(newData)
+			setCharacters(response.data)
 		} catch {
 			setCharacters(null)
 			setSearchedText('')
@@ -83,19 +68,8 @@ export function Home() {
 	async function handleChangePage(page: number) {
 		try {
 			const response = await api.get<CharacterResponse>(`/character/?name=${searchedText}&page=${page + 1}`)
-			const resultsParsed = response.data.results.map(character => {
-				return {
-					...character,
-					isFavorited: favorites.some(favoriteCharacter => favoriteCharacter.id === character.id)
-				}
-			})
 
-			const newData = {
-				...response.data,
-				results: resultsParsed
-			}
-
-			setCharacters(newData)
+			setCharacters(response.data)
 		} catch {
 			setCharacters(null)
 		}
@@ -143,7 +117,6 @@ export function Home() {
 							<CharacterCard
 								key={character.id}
 								character={character}
-								isFavorited={character.isFavorited}
 							/>
 						)
 					})}

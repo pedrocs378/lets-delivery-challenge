@@ -9,8 +9,7 @@ type Character = {
 
 type FavoritesContextData = {
 	favorites: Character[]
-	addFavoriteCharacter: (character: Character) => void
-	removeFavoriteCharacter: (characterId: number) => void
+	addOrDeleteFavoriteCharacter: (character: Character, isFavorited: boolean) => void
 }
 
 type FavoritesProviderProps = {
@@ -22,18 +21,18 @@ export const FavoritesContext = createContext({} as FavoritesContextData)
 export function FavoritesProvider({ children }: FavoritesProviderProps) {
 	const [favorites, setFavorites] = useState<Character[]>([])
 
-	const addFavoriteCharacter = useCallback((character: Character) => {
-		setFavorites(state => [...state, character])
-	}, [])
+	const addOrDeleteFavoriteCharacter = useCallback((character: Character, isFavorited: boolean) => {
+		if (isFavorited) {
+			const newState = favorites.filter(favoriteChar => favoriteChar.id !== character.id)
 
-	const removeFavoriteCharacter = useCallback((characterId: number) => {
-		const newState = favorites.filter(character => character.id !== characterId)
-
-		setFavorites(newState)
+			setFavorites(newState)
+		} else {
+			setFavorites(state => [...state, character])
+		}
 	}, [favorites])
 
 	return (
-		<FavoritesContext.Provider value={{ favorites, addFavoriteCharacter, removeFavoriteCharacter }}>
+		<FavoritesContext.Provider value={{ favorites, addOrDeleteFavoriteCharacter }}>
 			{children}
 		</FavoritesContext.Provider>
 	)
