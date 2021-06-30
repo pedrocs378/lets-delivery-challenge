@@ -7,6 +7,51 @@ export const Container = styled.div`
 		padding: 0 1rem;
 		max-width: 1120px;
 		margin: 2.5rem auto;
+
+		.pagination-container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 3rem;
+
+			gap: 0.5rem;
+
+			list-style: none;
+
+			li {
+				border: 1px solid var(--gray-light);
+				background: var(--white);
+				border-radius: 5px;
+				cursor: pointer;
+
+				transition: ease 0.2s;
+
+				a {
+					display: block;
+					padding: 0.8rem 1rem;
+				}
+
+				&:not(.disabled):not(.selected):hover {
+					border-color: var(--red);
+					background: var(--red-light);
+				}
+
+				&.selected {
+					background: var(--red);
+					border-color: var(--red);
+					color: var(--white);
+
+					&:hover {
+						filter: brightness(0.8);
+					}
+				}
+
+				&.disabled {
+					opacity: 0.5;
+					cursor: default;
+				}
+			}
+		}
 	}
 `
 

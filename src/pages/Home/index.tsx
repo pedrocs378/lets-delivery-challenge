@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import Loading from 'react-loading'
+import Pagination from 'react-paginate'
 
 import { CharacterCard } from '../../components/CharacterCard'
 import { Header } from '../../components/Header'
@@ -34,6 +35,7 @@ type CharacterResponse = {
 export function Home() {
 	const [characters, setCharacters] = useState<CharacterResponse | null>(null)
 	const [searchText, setSearchText] = useState('')
+	const [searchedText, setSearchedText] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
 
 	async function handleSearchCharacters(event: FormEvent) {
@@ -48,11 +50,23 @@ export function Home() {
 
 			const response = await api.get<CharacterResponse>(`/character/?name=${searchText}`)
 
+			setSearchedText(searchText)
 			setCharacters(response.data)
 		} catch {
 			setCharacters(null)
+			setSearchedText('')
 		} finally {
 			setIsLoading(false)
+		}
+	}
+
+	async function handleChangePage(page: number) {
+		try {
+			const response = await api.get<CharacterResponse>(`/character/?name=${searchedText}&page=${page + 1}`)
+
+			setCharacters(response.data)
+		} catch {
+			setCharacters(null)
 		}
 	}
 
@@ -101,6 +115,18 @@ export function Home() {
 						)
 					})}
 				</SearchResults>
+
+				{characters && (
+					<Pagination
+						pageCount={characters.info.pages}
+						pageRangeDisplayed={3}
+						marginPagesDisplayed={1}
+						nextLabel="Próximo"
+						previousLabel="Anterior"
+						containerClassName="pagination-container"
+						onPageChange={({ selected }) => handleChangePage(selected)}
+					/>
+				)}
 			</main>
 		</Container>
 	)
