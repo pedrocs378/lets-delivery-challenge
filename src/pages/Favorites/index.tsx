@@ -1,8 +1,14 @@
+
 import { Header } from "../../components/Header";
+import { CharacterCard } from "../../components/CharacterCard";
+
+import { useFavorites } from "../../hooks/useFavorites";
 
 import { Container, FavoriteList } from './styles'
 
 export function Favorites() {
+
+	const { favorites } = useFavorites()
 
 	return (
 		<Container>
@@ -10,7 +16,14 @@ export function Favorites() {
 
 			<main>
 				<FavoriteList>
-
+					{favorites.map(character => {
+						return (
+							<CharacterCard
+								key={character.id}
+								character={character}
+							/>
+						)
+					})}
 				</FavoriteList>
 			</main>
 		</Container>
