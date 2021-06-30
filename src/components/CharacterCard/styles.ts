@@ -48,7 +48,7 @@ export const Container = styled.div`
 			}
 
 			&:hover {
-				transform: translateY(-5%);
+				transform: scale(115%, 115%);
 			}
 		}
 	}

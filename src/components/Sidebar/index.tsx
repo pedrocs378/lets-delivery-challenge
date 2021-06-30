@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
 import { FiHome, FiHeart } from 'react-icons/fi'
+
+import { ActiveLink } from '../ActiveLink'
 
 import { Container } from './styles'
 
@@ -9,14 +10,14 @@ export function Sidebar() {
 		<Container>
 			<ul>
 				<li>
-					<Link to="/">
+					<ActiveLink to="/">
 						<FiHome />
-					</Link>
+					</ActiveLink>
 				</li>
 				<li>
-					<Link to="/favorites">
+					<ActiveLink to="/favorites">
 						<FiHeart />
-					</Link>
+					</ActiveLink>
 				</li>
 			</ul>
 		</Container>
