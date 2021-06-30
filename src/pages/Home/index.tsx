@@ -82,7 +82,6 @@ export function Home() {
 							<input
 								id="search"
 								type="search"
-								name="search"
 								placeholder="Pesquise por algum personagem..."
 								value={searchText}
 								onChange={event => setSearchText(event.target.value)}
