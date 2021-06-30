@@ -2,6 +2,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { Sidebar } from './components/Sidebar'
 
+import { FavoritesProvider } from './contexts/FavoritesContext'
 import { Routes } from './routes'
 
 import { Container } from './styles/app'
@@ -11,11 +12,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Container>
-        <Sidebar />
+      <FavoritesProvider>
+        <Container>
+          <Sidebar />
 
-        <Routes />
-      </Container>
+          <Routes />
+        </Container>
+      </FavoritesProvider>
 
       <GlobalStyles />
     </BrowserRouter>

@@ -1,8 +1,11 @@
 import { BsHeart, BsHeartFill } from 'react-icons/bs'
 
+import { useFavorites } from '../../hooks/useFavorites'
+
 import { Container } from './styles'
 
 type Character = {
+	id: number
 	name: string
 	gender: string
 	image: string
