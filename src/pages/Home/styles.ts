@@ -91,7 +91,7 @@ export const SearchInput = styled.label<SearchInputProps>`
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 
 	&:hover svg {
-		color: var(--blue);
+		color: var(--red);
 		opacity: 1;
 	}
 
@@ -127,7 +127,7 @@ export const SearchInput = styled.label<SearchInputProps>`
 		border: 0;
 		border-radius: 0.5rem;
 
-		background: var(--blue);
+		background: var(--red);
 		color: var(--white);
 
 		display: flex;
@@ -143,7 +143,7 @@ export const SearchInput = styled.label<SearchInputProps>`
 
 	${({ isFilled }) => isFilled && css`
 		svg {
-			color: var(--blue);
+			color: var(--red);
 			opacity: 1;
 		}
 	`}

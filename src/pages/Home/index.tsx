@@ -5,7 +5,9 @@ import Pagination from 'react-paginate'
 
 import { CharacterCard } from '../../components/CharacterCard'
 import { Header } from '../../components/Header'
+import { Load } from '../../components/Load'
 import { NotFound } from '../../components/NotFound'
+
 import { useFavorites } from '../../hooks/useFavorites'
 
 import { api } from '../../services/api'
@@ -117,33 +119,37 @@ export function Home() {
 					)}
 				</SearchContainer>
 
-				<SearchResults>
-					{characters && characters.results.map(character => {
-						return (
-							<CharacterCard
-								key={character.id}
-								character={character}
-								isFavorited={favorites.some(favoritedChar => favoritedChar.id === character.id)}
-							/>
-						)
-					})}
-				</SearchResults>
-
-				{!characters && notFounded && (
+				{!characters && notFounded ? (
 					<NotFound />
+				) : isLoading && (
+					<Load />
 				)}
 
 				{characters && (
-					<Pagination
-						pageCount={characters.info.pages}
-						pageRangeDisplayed={3}
-						marginPagesDisplayed={1}
-						nextLabel="Próximo"
-						previousLabel="Anterior"
-						containerClassName="pagination-container"
-						forcePage={page}
-						onPageChange={({ selected }) => handleChangePage(selected)}
-					/>
+					<>
+						<SearchResults>
+							{characters.results.map(character => {
+								return (
+									<CharacterCard
+										key={character.id}
+										character={character}
+										isFavorited={favorites.some(favoritedChar => favoritedChar.id === character.id)}
+									/>
+								)
+							})}
+						</SearchResults>
+
+						<Pagination
+							pageCount={characters.info.pages}
+							pageRangeDisplayed={3}
+							marginPagesDisplayed={1}
+							nextLabel="Próximo"
+							previousLabel="Anterior"
+							containerClassName="pagination-container"
+							forcePage={page}
+							onPageChange={({ selected }) => handleChangePage(selected)}
+						/>
+					</>
 				)}
 			</main>
 		</Container>
