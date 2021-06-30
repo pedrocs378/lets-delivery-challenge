@@ -21,6 +21,7 @@ export function Favorites() {
 							<CharacterCard
 								key={character.id}
 								character={character}
+								isFavorited={favorites.some(favoritedChar => favoritedChar.id === character.id)}
 							/>
 						)
 					})}

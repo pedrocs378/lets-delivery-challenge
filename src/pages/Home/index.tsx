@@ -41,6 +41,8 @@ export function Home() {
 	const [isLoading, setIsLoading] = useState(false)
 	const [notFounded, setNotFounded] = useState(false)
 
+	const { favorites } = useFavorites()
+
 	async function handleSearchCharacters(event: FormEvent) {
 		event.preventDefault()
 
@@ -117,6 +119,7 @@ export function Home() {
 							<CharacterCard
 								key={character.id}
 								character={character}
+								isFavorited={favorites.some(favoritedChar => favoritedChar.id === character.id)}
 							/>
 						)
 					})}

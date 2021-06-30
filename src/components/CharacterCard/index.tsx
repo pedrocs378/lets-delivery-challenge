@@ -1,5 +1,6 @@
-import { useMemo } from 'react'
+import { memo } from 'react'
 import { BsHeart, BsHeartFill } from 'react-icons/bs'
+import lodash from 'lodash'
 
 import { useFavorites } from '../../hooks/useFavorites'
 
@@ -14,15 +15,12 @@ type Character = {
 
 type CharacterCardProps = {
 	character: Character
+	isFavorited: boolean
 }
 
-export function CharacterCard({ character }: CharacterCardProps) {
+function CharacterCardComponent({ character, isFavorited }: CharacterCardProps) {
 
-	const { favorites, addOrDeleteFavoriteCharacter } = useFavorites()
-
-	const isFavorited = useMemo(() => {
-		return favorites.some(favoritedChar => favoritedChar.id === character.id)
-	}, [favorites])
+	const { addOrDeleteFavoriteCharacter } = useFavorites()
 
 	return (
 		<Container>
@@ -35,6 +33,7 @@ export function CharacterCard({ character }: CharacterCardProps) {
 
 				<button
 					type="button"
+					title="Adicionar aos favoritos"
 					onClick={() => addOrDeleteFavoriteCharacter(character, isFavorited)}
 				>
 					{isFavorited ? (
@@ -47,3 +46,7 @@ export function CharacterCard({ character }: CharacterCardProps) {
 		</Container>
 	)
 }
+
+export const CharacterCard = memo(CharacterCardComponent, (prevProps, nextProps) => {
+	return lodash.isEqual(prevProps.character, nextProps.character) && prevProps.isFavorited === nextProps.isFavorited
+})
