@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 	height: 22.5rem;
-	/* width: 17.5rem; */
 	width: 100%;
 	border-radius: 0.5rem;
 	
@@ -30,9 +29,10 @@ export const Container = styled.div`
 
 		p {
 			font-size: 0.85rem;
+			font-weight: 400;
+			line-height: 1.3rem;
 			color: var(--text);
 			margin-top: 0.35rem;
-			font-weight: 400;
 		}
 
 		button {

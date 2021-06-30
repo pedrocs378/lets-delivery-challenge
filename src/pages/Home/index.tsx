@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { FormEvent, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import Loading from 'react-loading'
@@ -82,7 +81,10 @@ export function Home() {
 			<main>
 				<SearchContainer>
 					<form onSubmit={handleSearchCharacters}>
-						<SearchInput htmlFor="search">
+						<SearchInput
+							htmlFor="search"
+							isFilled={!!searchText.trim()}
+						>
 							<FiSearch />
 							<input
 								id="search"

@@ -1,4 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+type SearchInputProps = {
+	isFilled: boolean
+}
 
 export const Container = styled.div`
 	grid-area: content;
@@ -74,13 +78,13 @@ export const SearchContainer = styled.div`
 	}
 `
 
-export const SearchInput = styled.label`
+export const SearchInput = styled.label<SearchInputProps>`
 	display: flex;
 
 	height: 100%;
 	width: 100%;
 
-	padding: 0.8rem 1rem 0.8rem 1.5rem;
+	padding: 0.8rem 1rem;
 	border-radius: 0.5rem;
 
 	background: var(--white);
@@ -136,6 +140,13 @@ export const SearchInput = styled.label`
 			filter: brightness(0.9);
 		}
 	}
+
+	${({ isFilled }) => isFilled && css`
+		svg {
+			color: var(--blue);
+			opacity: 1;
+		}
+	`}
 `
 
 export const SearchResults = styled.div`
