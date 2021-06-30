@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { FormEvent, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import Loading from 'react-loading'
@@ -5,6 +6,7 @@ import Pagination from 'react-paginate'
 
 import { CharacterCard } from '../../components/CharacterCard'
 import { Header } from '../../components/Header'
+import { NotFound } from '../../components/NotFound'
 
 import { api } from '../../services/api'
 
@@ -37,6 +39,7 @@ export function Home() {
 	const [searchText, setSearchText] = useState('')
 	const [searchedText, setSearchedText] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
+	const [notFounded, setNotFounded] = useState(false)
 
 	async function handleSearchCharacters(event: FormEvent) {
 		event.preventDefault()
@@ -46,6 +49,7 @@ export function Home() {
 		}
 
 		try {
+			setNotFounded(false)
 			setIsLoading(true)
 
 			const response = await api.get<CharacterResponse>(`/character/?name=${searchText}`)
@@ -55,6 +59,7 @@ export function Home() {
 		} catch {
 			setCharacters(null)
 			setSearchedText('')
+			setNotFounded(true)
 		} finally {
 			setIsLoading(false)
 		}
@@ -114,6 +119,10 @@ export function Home() {
 						)
 					})}
 				</SearchResults>
+
+				{!characters && notFounded && (
+					<NotFound />
+				)}
 
 				{characters && (
 					<Pagination
