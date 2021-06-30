@@ -28,12 +28,30 @@ export const Container = styled.div`
 	}
 `
 
+export const SearchContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	form {
+		width: 100%;
+		max-width: 30rem;
+		height: 5rem;
+	}
+
+	> span {
+		color: var(--gray);
+		opacity: 0.7;
+		font-weight: 400;
+		font-size: 1rem;
+	}
+`
+
 export const SearchInput = styled.label`
 	display: flex;
 
+	height: 100%;
 	width: 100%;
-	max-width: 30rem;
-	height: 5rem;
 
 	padding: 0.8rem 1rem 0.8rem 1.5rem;
 	border-radius: 0.5rem;
@@ -46,7 +64,7 @@ export const SearchInput = styled.label`
 		opacity: 1;
 	}
 
-	svg {
+	> svg {
 		margin: auto 0;
 		margin-right: 0.5rem;
 		color: var(--gray);
@@ -73,12 +91,17 @@ export const SearchInput = styled.label`
 	}
 
 	button {
+		width: 7.5rem;
+		font-weight: 600;
 		border: 0;
+		border-radius: 0.5rem;
+
 		background: var(--blue);
 		color: var(--white);
-		width: 7.5rem;
-		border-radius: 0.5rem;
-		font-weight: 600;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
 		transition: ease 0.2s;
 
