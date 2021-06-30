@@ -1,7 +1,9 @@
 import { FormEvent, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import Loading from 'react-loading'
+
 import { CharacterCard } from '../../components/CharacterCard'
+import { Header } from '../../components/Header'
 
 import { api } from '../../services/api'
 
@@ -56,11 +58,8 @@ export function Home() {
 
 	return (
 		<Container>
-			<header>
-				<div>
-					<strong>Início</strong>
-				</div>
-			</header>
+			<Header title="Início" />
+
 			<main>
 				<SearchContainer>
 					<form onSubmit={handleSearchCharacters}>
