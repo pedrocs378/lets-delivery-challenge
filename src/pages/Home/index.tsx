@@ -38,6 +38,7 @@ export function Home() {
 	const [characters, setCharacters] = useState<CharacterResponse | null>(null)
 	const [searchText, setSearchText] = useState('')
 	const [searchedText, setSearchedText] = useState('')
+	const [page, setPage] = useState(0)
 	const [isLoading, setIsLoading] = useState(false)
 	const [notFounded, setNotFounded] = useState(false)
 
@@ -64,16 +65,19 @@ export function Home() {
 			setNotFounded(true)
 		} finally {
 			setIsLoading(false)
+			setPage(0)
 		}
 	}
 
-	async function handleChangePage(page: number) {
+	async function handleChangePage(selectedPage: number) {
 		try {
-			const response = await api.get<CharacterResponse>(`/character/?name=${searchedText}&page=${page + 1}`)
+			setPage(selectedPage)
+			const response = await api.get<CharacterResponse>(`/character/?name=${searchedText}&page=${selectedPage + 1}`)
 
 			setCharacters(response.data)
 		} catch {
 			setCharacters(null)
+			setPage(0)
 		}
 	}
 
@@ -137,6 +141,7 @@ export function Home() {
 						nextLabel="Próximo"
 						previousLabel="Anterior"
 						containerClassName="pagination-container"
+						forcePage={page}
 						onPageChange={({ selected }) => handleChangePage(selected)}
 					/>
 				)}
