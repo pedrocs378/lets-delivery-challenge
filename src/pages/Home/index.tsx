@@ -1,10 +1,16 @@
 import { FormEvent, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import Loading from 'react-loading'
+import { CharacterCard } from '../../components/CharacterCard'
 
 import { api } from '../../services/api'
 
-import { Container, SearchContainer, SearchInput } from './styles'
+import {
+	Container,
+	SearchContainer,
+	SearchInput,
+	SearchResults,
+} from './styles'
 
 type Character = {
 	id: number
@@ -84,6 +90,18 @@ export function Home() {
 						<span>Total {characters.info.count} personagens</span>
 					)}
 				</SearchContainer>
+
+				<SearchResults>
+					{characters && characters.results.map(character => {
+						return (
+							<CharacterCard
+								key={character.id}
+								character={character}
+								isFavorited={false}
+							/>
+						)
+					})}
+				</SearchResults>
 			</main>
 		</Container>
 	)

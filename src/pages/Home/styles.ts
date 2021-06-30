@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+	grid-area: content;
 	
 	header{
 		background: var(--white);
@@ -17,6 +18,7 @@ export const Container = styled.div`
 
 			strong{
 				font-size: 1.25rem;
+				color: var(--heading);
 			}
 		}
 	}
@@ -109,4 +111,12 @@ export const SearchInput = styled.label`
 			filter: brightness(0.9);
 		}
 	}
+`
+
+export const SearchResults = styled.div`
+	margin-top: 3rem;
+
+	display: grid;
+	grid-template-columns: repeat(4, calc((1120px / 4) - 1.5rem));
+	gap: 1.5rem;
 `
