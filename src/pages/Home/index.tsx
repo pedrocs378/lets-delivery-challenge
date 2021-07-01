@@ -84,7 +84,7 @@ export function Home() {
 	}
 
 	return (
-		<Container>
+		<Container id="homepage">
 			<Header title="Início" />
 
 			<main>
@@ -149,6 +149,10 @@ export function Home() {
 							forcePage={page}
 							onPageChange={({ selected }) => handleChangePage(selected)}
 						/>
+
+						<p>
+							<a href="#homepage">Voltar ao topo</a>
+						</p>
 					</>
 				)}
 			</main>

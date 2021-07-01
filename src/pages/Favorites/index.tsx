@@ -11,7 +11,7 @@ export function Favorites() {
 	const { favorites } = useFavorites()
 
 	return (
-		<Container>
+		<Container id="favorites-page">
 			<Header title="Favoritos" />
 
 			<main>
@@ -26,6 +26,12 @@ export function Favorites() {
 						)
 					})}
 				</FavoriteList>
+
+				{favorites.length > 1 && (
+					<p>
+						<a href="#favorites-page">Voltar ao topo</a>
+					</p>
+				)}
 			</main>
 		</Container>
 	)

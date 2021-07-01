@@ -6,9 +6,13 @@ type ContainerProps = {
 
 export const Container = styled.aside<ContainerProps>`
 	grid-area: sidebar;
-	width: 100%;
+	width: 7rem;
 	
-	position: relative;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
 
 	button {
 		position: absolute;
@@ -39,6 +43,8 @@ export const Container = styled.aside<ContainerProps>`
 	}
 
 	@media (min-width: 500px) {
+		position: relative;
+
 		> div {
 			transform: translateX(0);	
 		}

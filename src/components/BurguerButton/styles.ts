@@ -11,7 +11,7 @@ export const Container = styled.button<ContainerProps>`
 	border-radius: 50%;
 	background: transparent;
 
-	z-index: 1;
+	z-index: 2;
 
 	display: flex;
 	flex-direction: column;

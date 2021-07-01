@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-	background: var(--white);
+	background: transparent;
 	height: 5rem;
 
 	display: flex;
@@ -12,10 +12,19 @@ export const Container = styled.header`
 		width: 100%;
 		max-width: 1120px;
 		padding: 0 1rem;
+		display: none;
 
 		strong{
 			font-size: 1.25rem;
 			color: var(--heading);
+		}
+	}
+
+	@media (min-width: 500px) {
+		background: var(--white);
+
+		div {
+			display: block;
 		}
 	}
 `
