@@ -60,14 +60,16 @@ export const Container = styled.div`
 	@media (min-width: 500px) {
 		height: 22.5rem;
 
-		p {
-			font-size: 0.85rem;
-			line-height: 1.3rem;
-		}	
+		section {
+			p {
+				font-size: 0.85rem;
+				line-height: 1.3rem;
+			}	
 
-		svg {
-			height: 1.3rem;
-			width: 1.3rem;
+			button svg {
+				height: 1.3rem;
+				width: 1.3rem;	
+			}
 		}
 	}
 `
