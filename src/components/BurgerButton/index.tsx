@@ -6,7 +6,7 @@ type BurguerButton = ButtonHTMLAttributes<HTMLButtonElement> & {
 	isActive?: boolean
 }
 
-export function BurguerButton({ isActive = false, ...rest }: BurguerButton) {
+export function BurgerButton({ isActive = false, ...rest }: BurguerButton) {
 
 	return (
 		<Container isActive={isActive} {...rest}>

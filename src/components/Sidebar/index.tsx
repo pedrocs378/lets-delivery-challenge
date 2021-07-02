@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FiHome, FiHeart } from 'react-icons/fi'
 
 import { ActiveLink } from '../ActiveLink'
-import { BurguerButton } from '../BurguerButton'
+import { BurgerButton } from '../BurgerButton'
 
 import { Container } from './styles'
 
@@ -11,7 +11,7 @@ export function Sidebar() {
 
 	return (
 		<Container isOpened={showSidebar}>
-			<BurguerButton
+			<BurgerButton
 				isActive={!showSidebar}
 				onClick={() => setShowSidebar(state => !state)}
 			/>

@@ -80,6 +80,7 @@ export const Container = styled.div`
 export const SearchContainer = styled.div`
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	gap: 1.5rem;
 
 	form {
@@ -95,10 +96,9 @@ export const SearchContainer = styled.div`
 		font-size: 1rem;
 	}
 
-	@media (min-width: 500px) {
+	@media (min-width: 700px) {
 		flex-direction: row;
-		justify-content: space-between;	
-		align-items: center;
+		justify-content: space-between;
 		gap: 0;	
 	}
 `
@@ -181,7 +181,15 @@ export const SearchResults = styled.div`
 	grid-template-columns: 1fr;
 	gap: 1.5rem;
 
-	@media (min-width: 500px) {
-		grid-template-columns: repeat(4, calc((1120px / 4) - 1.5rem));
+	@media (min-width: 600px) {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@media (min-width: 900px) {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	@media (min-width: 1240px) {
+		grid-template-columns: repeat(4, calc((1120px / 4) - 1.5rem));	
 	}
 `
