@@ -1,4 +1,5 @@
-# Let's Delivery Challenge
+# Rick and Morty Challenge
+https://rick-and-morty-fawn-kappa.vercel.app/
 
 ## :rocket: Tecnologias
 
