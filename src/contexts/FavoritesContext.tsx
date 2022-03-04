@@ -1,4 +1,6 @@
-import { useState, useCallback, createContext, ReactNode } from "react";
+import { useCallback, createContext, ReactNode } from "react";
+
+import { useStoragedState } from "../hooks/useStoragedState";
 
 type Character = {
 	id: number
@@ -19,29 +21,22 @@ type FavoritesProviderProps = {
 export const FavoritesContext = createContext({} as FavoritesContextData)
 
 export function FavoritesProvider({ children }: FavoritesProviderProps) {
-	const [favorites, setFavorites] = useState<Character[]>(() => {
-		const storagedFavorites = localStorage.getItem('@RickAndMortyChallenge:favorites')
-
-		if (storagedFavorites) {
-			return JSON.parse(storagedFavorites)
-		}
-
-		return []
-	})
+	const [favorites, setFavorites] = useStoragedState<Character[]>(
+		'@RickAndMortyChallenge:favorites',
+		[]
+	)
 
 	const addOrDeleteFavoriteCharacter = useCallback((character: Character, isFavorited: boolean) => {
 		if (isFavorited) {
 			const newState = favorites.filter(favoriteChar => favoriteChar.id !== character.id)
 
 			setFavorites(newState)
-			localStorage.setItem('@RickAndMortyChallenge:favorites', JSON.stringify(newState))
 		} else {
 			const newState = [...favorites, character]
 
 			setFavorites(newState)
-			localStorage.setItem('@RickAndMortyChallenge:favorites', JSON.stringify(newState))
 		}
-	}, [favorites])
+	}, [favorites, setFavorites])
 
 	return (
 		<FavoritesContext.Provider value={{ favorites, addOrDeleteFavoriteCharacter }}>
