@@ -1,8 +1,8 @@
-import { Container } from './styles'
+import * as S from './styles'
 
 export function NotFound() {
 	return (
-		<Container>
+		<S.Container>
 			<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M80 40C80 62.0911 62.0911 80 40 80C17.9111 80 0 62.0911 0 40C0 17.9111 17.9111 0 40 0C62.0911 0 80 17.9111 80 40Z" fill="#FFCC66" />
 				<path d="M25.5556 44.4445C28.6238 44.4445 31.1111 40.9622 31.1111 36.6667C31.1111 32.3711 28.6238 28.8889 25.5556 28.8889C22.4873 28.8889 20 32.3711 20 36.6667C20 40.9622 22.4873 44.4445 25.5556 44.4445Z" fill="#474238" />
@@ -14,6 +14,6 @@ export function NotFound() {
 				Nenhum personagem encontrado. <br />
 				Tente uma nova busca
 			</strong>
-		</Container>
+		</S.Container>
 	)
 }

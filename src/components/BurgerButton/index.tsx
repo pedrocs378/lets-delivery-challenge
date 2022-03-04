@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from "react"
 
-import { Container } from './styles'
+import * as S from './styles'
 
 type BurguerButton = ButtonHTMLAttributes<HTMLButtonElement> & {
 	isActive?: boolean
@@ -9,10 +9,10 @@ type BurguerButton = ButtonHTMLAttributes<HTMLButtonElement> & {
 export function BurgerButton({ isActive = false, ...rest }: BurguerButton) {
 
 	return (
-		<Container isActive={isActive} {...rest}>
+		<S.Container isActive={isActive} {...rest}>
 			<div />
 			<div />
 			<div />
-		</Container>
+		</S.Container>
 	)
 }

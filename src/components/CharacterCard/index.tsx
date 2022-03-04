@@ -4,7 +4,7 @@ import lodash from 'lodash'
 
 import { useFavorites } from '../../hooks/useFavorites'
 
-import { Container } from './styles'
+import * as S from './styles'
 
 type Character = {
 	id: number
@@ -19,11 +19,10 @@ type CharacterCardProps = {
 }
 
 function CharacterCardComponent({ character, isFavorited }: CharacterCardProps) {
-
 	const { addOrDeleteFavoriteCharacter } = useFavorites()
 
 	return (
-		<Container>
+		<S.Container>
 			<img src={character.image} alt={character.name} />
 			<section>
 				<div>
@@ -43,7 +42,7 @@ function CharacterCardComponent({ character, isFavorited }: CharacterCardProps) 
 					)}
 				</button>
 			</section>
-		</Container>
+		</S.Container>
 	)
 }
 

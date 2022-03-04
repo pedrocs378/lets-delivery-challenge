@@ -1,5 +1,4 @@
-
-import { Container } from './styles'
+import * as S from './styles'
 
 type HeaderProps = {
 	id?: string
@@ -9,10 +8,10 @@ type HeaderProps = {
 export function Header({ id, title }: HeaderProps) {
 
 	return (
-		<Container id={id}>
+		<S.Container id={id}>
 			<div>
 				<strong>{title}</strong>
 			</div>
-		</Container>
+		</S.Container>
 	)
 }

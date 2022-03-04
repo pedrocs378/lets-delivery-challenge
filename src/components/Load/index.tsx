@@ -1,10 +1,8 @@
-
-import { Container } from './styles'
+import * as S from './styles'
 
 export function Load() {
-
 	return (
-		<Container>
+		<S.Container>
 			<svg version="1.1" id="L4" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 				viewBox="0 0 100 100" enableBackground="new 0 0 0 0" xmlSpace="preserve">
 				<circle fill="#fff" stroke="none" cx="6" cy="50" r="6">
@@ -32,6 +30,6 @@ export function Load() {
 						begin="0.3" />
 				</circle>
 			</svg>
-		</Container>
+		</S.Container>
 	)
 }

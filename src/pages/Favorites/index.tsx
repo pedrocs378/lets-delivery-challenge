@@ -4,7 +4,7 @@ import { CharacterCard } from "../../components/CharacterCard";
 
 import { useFavorites } from "../../hooks/useFavorites";
 
-import { Container, FavoriteList, BackToTop } from './styles'
+import * as S from './styles'
 
 export function Favorites() {
 
@@ -14,8 +14,8 @@ export function Favorites() {
 		<>
 			<Header id="favorites-top" title="Favoritos" />
 
-			<Container>
-				<FavoriteList>
+			<S.Container>
+				<S.FavoriteList>
 					{favorites.map(character => {
 						return (
 							<CharacterCard
@@ -25,14 +25,14 @@ export function Favorites() {
 							/>
 						)
 					})}
-				</FavoriteList>
+				</S.FavoriteList>
 
 				{favorites.length > 1 && (
-					<BackToTop>
+					<S.BackToTop>
 						<a href="#favorites-top">Voltar ao topo</a>
-					</BackToTop>
+					</S.BackToTop>
 				)}
-			</Container>
+			</S.Container>
 		</>
 	)
 }

@@ -12,13 +12,7 @@ import { useFavorites } from '../../hooks/useFavorites'
 
 import { api } from '../../services/api'
 
-import {
-	Container,
-	SearchContainer,
-	SearchInput,
-	SearchResults,
-	BackToTop,
-} from './styles'
+import * as S from './styles'
 
 type Character = {
 	id: number
@@ -89,10 +83,10 @@ export function Home() {
 		<>
 			<Header id="homepage-top" title="Início" />
 
-			<Container>
-				<SearchContainer>
+			<S.Container>
+				<S.SearchContainer>
 					<form onSubmit={handleSearchCharacters}>
-						<SearchInput
+						<S.SearchInput
 							htmlFor="search"
 							isFilled={!!searchText.trim()}
 						>
@@ -113,13 +107,13 @@ export function Home() {
 									/>
 								) : "Pesquisar"}
 							</button>
-						</SearchInput>
+						</S.SearchInput>
 					</form>
 
 					{characters && characters.info.count > 0 && (
 						<span>Total {characters.info.count} personagens</span>
 					)}
-				</SearchContainer>
+				</S.SearchContainer>
 
 				{!characters && notFounded ? (
 					<NotFound />
@@ -129,7 +123,7 @@ export function Home() {
 
 				{characters && (
 					<>
-						<SearchResults>
+						<S.SearchResults>
 							{characters.results.map(character => {
 								return (
 									<CharacterCard
@@ -139,7 +133,7 @@ export function Home() {
 									/>
 								)
 							})}
-						</SearchResults>
+						</S.SearchResults>
 
 						<Pagination
 							pageCount={characters.info.pages}
@@ -152,12 +146,12 @@ export function Home() {
 							onPageChange={({ selected }) => handleChangePage(selected)}
 						/>
 
-						<BackToTop>
+						<S.BackToTop>
 							<a href="#homepage-top">Voltar ao topo</a>
-						</BackToTop>
+						</S.BackToTop>
 					</>
 				)}
-			</Container>
+			</S.Container>
 		</>
 	)
 }

@@ -1,10 +1,9 @@
-
-import { Container } from './styles'
+import * as S from './styles'
 
 export function Footer() {
 
 	return (
-		<Container>
+		<S.Container>
 			<div>
 				<small>
 					Desenvolvido com 💜 por
@@ -17,6 +16,6 @@ export function Footer() {
 					</a>
 				</small>
 			</div>
-		</Container>
+		</S.Container>
 	)
 }
