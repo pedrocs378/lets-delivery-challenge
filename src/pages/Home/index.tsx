@@ -1,4 +1,4 @@
-import { FormEvent, useState, Fragment } from 'react'
+import { FormEvent, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import Loading from 'react-loading'
 import Pagination from 'react-paginate'

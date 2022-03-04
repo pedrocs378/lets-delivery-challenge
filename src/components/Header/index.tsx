@@ -6,7 +6,6 @@ type HeaderProps = {
 }
 
 export function Header({ id, title }: HeaderProps) {
-
 	return (
 		<S.Container id={id}>
 			<div>

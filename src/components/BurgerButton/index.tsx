@@ -7,7 +7,6 @@ type BurguerButton = ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 
 export function BurgerButton({ isActive = false, ...rest }: BurguerButton) {
-
 	return (
 		<S.Container isActive={isActive} {...rest}>
 			<div />

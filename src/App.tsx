@@ -7,20 +7,20 @@ import { FavoritesProvider } from './contexts/FavoritesContext'
 
 import { Routes } from './routes'
 
-import { Container } from './styles/app'
 import GlobalStyles from './styles/global'
+import * as S from './styles/app'
 
 function App() {
   return (
     <BrowserRouter>
       <FavoritesProvider>
-        <Container>
+        <S.Container>
           <Sidebar />
 
           <Routes />
 
           <Footer />
-        </Container>
+        </S.Container>
       </FavoritesProvider>
 
       <GlobalStyles />
