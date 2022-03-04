@@ -18,7 +18,7 @@ export const Container = styled.div`
 		flex: 8;
 	}
 
-	@media (min-width: var(--mobile)) {
+	@media (min-width: 500px) {
 		height: 22.5rem;
 	}
 `
@@ -61,7 +61,7 @@ export const CharacterInfo = styled.div`
 		}
 	}
 
-	@media (min-width: var(--mobile)) {
+	@media (min-width: 500px) {
 		p {
 			font-size: 0.85rem;
 			line-height: 1.3rem;

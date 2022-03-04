@@ -20,7 +20,7 @@ export const Container = styled.header`
 		}
 	}
 
-	@media (min-width: var(--mobile)) {
+	@media (min-width: 500px) {
 		height: 100%;
 
 		div {

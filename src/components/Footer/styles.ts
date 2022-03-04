@@ -36,7 +36,7 @@ export const Container = styled.footer`
 		}
 	}
 
-	@media (min-width: var(--mobile)) {
+	@media (min-width: 500px) {
 		height: 100%;
 	}
 `

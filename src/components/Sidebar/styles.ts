@@ -42,7 +42,7 @@ export const Container = styled.aside<ContainerProps>`
 		`}
 	}
 
-	@media (min-width: var(--mobile)) {
+	@media (min-width: 500px) {
 		position: relative;
 
 		> div {
