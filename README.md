@@ -26,5 +26,5 @@ Pequena consulta, visualização e cadastro de personagens favoritos do seriado 
 ## :clapper: Execução
 
 - Clone o repositório.
-- Instale as bibliotecas utilizando `npm install` ou qualquer outro gerenciador de pacotes.
-- Execute utilizando `npm start`.
+- Instale as bibliotecas utilizando `yarn` ou qualquer outro gerenciador de pacotes.
+- Execute utilizando `yarn start`.
