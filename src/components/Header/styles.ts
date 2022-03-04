@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.header`
 	grid-area: header;
-	background: transparent;
-	height: 100%;
+	background: var(--white);
+	height: 4rem;
 
 	display: flex;
 	align-items: center;
@@ -12,8 +12,7 @@ export const Container = styled.header`
 	div {
 		width: 100%;
 		max-width: 1120px;
-		padding: 0 1rem;
-		display: none;
+		padding: 0 1rem 0 6rem;
 
 		strong{
 			font-size: 1.25rem;
@@ -22,10 +21,11 @@ export const Container = styled.header`
 	}
 
 	@media (min-width: 500px) {
-		background: var(--white);
+		height: 100%;
 
 		div {
 			display: block;
+			padding: 0 1rem;
 		}
 	}
 `

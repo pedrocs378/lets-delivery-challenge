@@ -2,20 +2,20 @@ import styled from "styled-components";
 
 export const Container = styled.footer`
 	grid-area: footer;
-	background: transparent;
-	height: 100%;
+	background: var(--white);
+	height: 3rem;
+	
 
 	display: flex;
 	align-items: center;
 
 	div {
-		display: none;
-
 		width: 100%;
 		max-width: 1120px;
 		margin: 0 auto;
 		padding: 0 1rem;
 
+		display: flex;
 		align-items: center;
 		justify-content: center;
 
@@ -37,10 +37,10 @@ export const Container = styled.footer`
 	}
 
 	@media (min-width: 500px) {
-		background: var(--white);
+		height: 100%;
 
 		div {
-			display: flex;
+			
 		}
 	}
 `

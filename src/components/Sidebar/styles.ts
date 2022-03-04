@@ -12,7 +12,7 @@ export const Container = styled.aside<ContainerProps>`
 	top: 0;
 	bottom: 0;
 	left: 0;
-	z-index: 1;
+	z-index: 9;
 
 	button {
 		position: absolute;
@@ -37,7 +37,7 @@ export const Container = styled.aside<ContainerProps>`
 			list-style: none;
 		}
 
-		${({ isOpened }) => isOpened && css`
+		${({ isOpened }) => !isOpened && css`
 			transform: translateX(-100%);
 		`}
 	}
@@ -49,4 +49,16 @@ export const Container = styled.aside<ContainerProps>`
 			transform: translateX(0);	
 		}
 	}
+`
+
+export const Backdrop = styled.div`
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+
+	z-index: 8;
+
+	background-color: rgba(0, 0, 0, 0.15);
 `

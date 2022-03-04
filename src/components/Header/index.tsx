@@ -2,13 +2,14 @@
 import { Container } from './styles'
 
 type HeaderProps = {
+	id?: string
 	title: string
 }
 
-export function Header({ title }: HeaderProps) {
+export function Header({ id, title }: HeaderProps) {
 
 	return (
-		<Container>
+		<Container id={id}>
 			<div>
 				<strong>{title}</strong>
 			</div>

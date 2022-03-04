@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useState, Fragment } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import Loading from 'react-loading'
 import Pagination from 'react-paginate'
@@ -17,6 +17,7 @@ import {
 	SearchContainer,
 	SearchInput,
 	SearchResults,
+	BackToTop,
 } from './styles'
 
 type Character = {
@@ -86,9 +87,9 @@ export function Home() {
 
 	return (
 		<>
-			<Header title="Início" />
+			<Header id="homepage-top" title="Início" />
 
-			<Container id="homepage">
+			<Container>
 				<SearchContainer>
 					<form onSubmit={handleSearchCharacters}>
 						<SearchInput
@@ -151,9 +152,9 @@ export function Home() {
 							onPageChange={({ selected }) => handleChangePage(selected)}
 						/>
 
-						<p>
-							<a href="#homepage">Voltar ao topo</a>
-						</p>
+						<BackToTop>
+							<a href="#homepage-top">Voltar ao topo</a>
+						</BackToTop>
 					</>
 				)}
 			</Container>

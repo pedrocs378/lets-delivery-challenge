@@ -11,7 +11,7 @@ export const Container = styled.main`
 	padding: 0 1rem;
 	width: 100%;
 	max-width: 1120px;
-	min-height: calc(100vh - 12rem);
+	min-height: calc(100vh - 16rem);
 	margin: 2.5rem auto;
 
 	.pagination-container {
@@ -59,20 +59,22 @@ export const Container = styled.main`
 		}
 	}
 
-	> p {
-		text-align: center;
-		margin-top: 1.5rem;
+	@media (min-width: 500px) {
+		min-height: calc(100vh - 12rem);
+	}
+`
 
-		a {
-			text-decoration: none;
-			color: var(--heading);
-		}
+export const BackToTop = styled.p`
+	text-align: center;
+	margin-top: 1.5rem;
+
+	a {
+		text-decoration: none;
+		color: var(--heading);
 	}
 
 	@media (min-width: 500px) {
-		> p {
-			display: none;
-		}
+		display: none;
 	}
 `
 
