@@ -1,28 +1,27 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.main`
 	grid-area: content;
 	flex: 1;
 
-	main {
-		padding: 0 1rem;
-		max-width: 1120px;
-		margin: 2.5rem auto;
+	padding: 0 1rem;
+	max-width: 1120px;
+	min-height: calc(100vh - 12rem);
+	margin: 2.5rem auto;
 
-		> p {
-			text-align: center;
-			margin-top: 1.5rem;
+	> p {
+		text-align: center;
+		margin-top: 1.5rem;
 
-			a {
-				text-decoration: none;
-				color: var(--heading);
-			}
+		a {
+			text-decoration: none;
+			color: var(--heading);
 		}
+	}
 
-		@media (min-width: 500px) {
-			> p {
-				display: none;
-			}
+	@media (min-width: 500px) {
+		> p {
+			display: none;
 		}
 	}
 `

@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 type ContainerProps = {
-	isActive: boolean
+	$isActive: boolean
 }
 
 const activeStyles = css`
@@ -47,5 +47,5 @@ export const Container = styled(Link) <ContainerProps>`
 		${activeStyles}
 	}
 
-	${({ isActive }) => isActive && activeStyles}
+	${({ $isActive }) => $isActive && activeStyles}
 `

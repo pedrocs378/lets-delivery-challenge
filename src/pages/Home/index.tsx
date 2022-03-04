@@ -3,8 +3,8 @@ import { FiSearch } from 'react-icons/fi'
 import Loading from 'react-loading'
 import Pagination from 'react-paginate'
 
-import { CharacterCard } from '../../components/CharacterCard'
 import { Header } from '../../components/Header'
+import { CharacterCard } from '../../components/CharacterCard'
 import { Load } from '../../components/Load'
 import { NotFound } from '../../components/NotFound'
 
@@ -50,6 +50,7 @@ export function Home() {
 		event.preventDefault()
 
 		if (!searchText.trim()) {
+			setCharacters(null)
 			return
 		}
 
@@ -84,10 +85,10 @@ export function Home() {
 	}
 
 	return (
-		<Container id="homepage">
+		<>
 			<Header title="Início" />
 
-			<main>
+			<Container id="homepage">
 				<SearchContainer>
 					<form onSubmit={handleSearchCharacters}>
 						<SearchInput
@@ -155,7 +156,7 @@ export function Home() {
 						</p>
 					</>
 				)}
-			</main>
-		</Container>
+			</Container>
+		</>
 	)
 }

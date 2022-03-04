@@ -11,10 +11,10 @@ export function Favorites() {
 	const { favorites } = useFavorites()
 
 	return (
-		<Container id="favorites-page">
+		<>
 			<Header title="Favoritos" />
 
-			<main>
+			<Container id="favorites-page">
 				<FavoriteList>
 					{favorites.map(character => {
 						return (
@@ -32,7 +32,7 @@ export function Favorites() {
 						<a href="#favorites-page">Voltar ao topo</a>
 					</p>
 				)}
-			</main>
-		</Container>
+			</Container>
+		</>
 	)
 }

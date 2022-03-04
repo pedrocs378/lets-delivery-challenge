@@ -9,10 +9,7 @@ export function ActiveLink({ children, ...rest }: ActiveLinkProps) {
 	const match = useRouteMatch(`${rest.to}`)
 
 	return (
-		<Container
-			{...rest}
-			isActive={!!match?.isExact}
-		>
+		<Container $isActive={!!match?.isExact} {...rest}>
 			{children}
 		</Container>
 	)
