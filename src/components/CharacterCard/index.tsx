@@ -23,8 +23,9 @@ function CharacterCardComponent({ character, isFavorited }: CharacterCardProps) 
 
 	return (
 		<S.Container>
-			<img src={character.image} alt={character.name} />
-			<section>
+			<img src={character.image} alt={character.name} loading="lazy" />
+
+			<S.CharacterInfo>
 				<div>
 					<strong>{character.name}</strong>
 					<p>{character.gender}</p>
@@ -41,7 +42,7 @@ function CharacterCardComponent({ character, isFavorited }: CharacterCardProps) 
 						<BsHeart />
 					)}
 				</button>
-			</section>
+			</S.CharacterInfo>
 		</S.Container>
 	)
 }
