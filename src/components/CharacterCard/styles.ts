@@ -18,7 +18,7 @@ export const Container = styled.div`
 		flex: 8;
 	}
 
-	@media (min-width: 500px) {
+	@media (min-width: var(--mobile)) {
 		height: 22.5rem;
 	}
 `
@@ -31,14 +31,14 @@ export const CharacterInfo = styled.div`
 	justify-content: space-between;
 
 	strong {
-		font-weight: 500;
+		font-weight: var(--medium);
 		font-size: 1.25rem;
 		color: var(--heading);
 	}
 
 	p {
 		font-size: 1rem;
-		font-weight: 400;
+		font-weight: var(--regular);
 		line-height: 1.8rem;
 		color: var(--text);
 		margin-top: 0.35rem;
@@ -61,7 +61,7 @@ export const CharacterInfo = styled.div`
 		}
 	}
 
-	@media (min-width: 500px) {
+	@media (min-width: var(--mobile)) {
 		p {
 			font-size: 0.85rem;
 			line-height: 1.3rem;
@@ -70,6 +70,6 @@ export const CharacterInfo = styled.div`
 		button svg {
 			height: 1.3rem;
 			width: 1.3rem;	
-			}
+		}
 	}
 `

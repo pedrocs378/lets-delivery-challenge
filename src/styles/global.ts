@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
 	:root {
+		// Colors
 		--white: #fff;
 		--background: #F4F5F6;
 		--heading: #47474D;
@@ -15,6 +16,19 @@ export default createGlobalStyle`
 		--red-light: rgba(220, 22, 55, 0.1);
 		
 		--blue: #367BFF;
+
+		// Font Weights
+		--regular: 400;
+		--medium: 500;
+		--semi-bold: 600;
+
+		// Breakpoints
+		--mobile: 500px;
+		--screen-sm: 600px;
+		--screen-md: 700px;
+		--screen-lg: 900px;
+		--screen-xl: 1240px;
+		--screen-content: 1120px;
 	}
 
 	* {
@@ -40,7 +54,7 @@ export default createGlobalStyle`
 	}
 
 	body, input, button {
-		font: 500 1rem 'Archivo', sans-serif;
+		font: var(--medium) 1rem 'Archivo', sans-serif;
 	}
 
 	button {

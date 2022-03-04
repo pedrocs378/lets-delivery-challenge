@@ -42,7 +42,7 @@ export const Container = styled.button<ContainerProps>`
 		}
 	}
 
-	@media (min-width: 500px) {
+	@media (min-width: var(--mobile)) {
 		display: none;	
 	}
 `

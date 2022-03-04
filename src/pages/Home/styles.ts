@@ -10,7 +10,7 @@ export const Container = styled.main`
 
 	padding: 0 1rem;
 	width: 100%;
-	max-width: 1120px;
+	max-width: var(--screen-content);
 	min-height: calc(100vh - 16rem);
 	margin: 2.5rem auto;
 
@@ -59,7 +59,7 @@ export const Container = styled.main`
 		}
 	}
 
-	@media (min-width: 500px) {
+	@media (min-width: var(--mobile)) {
 		min-height: calc(100vh - 12rem);
 	}
 `
@@ -73,7 +73,7 @@ export const BackToTop = styled.p`
 		color: var(--heading);
 	}
 
-	@media (min-width: 500px) {
+	@media (min-width: var(--mobile)) {
 		display: none;
 	}
 `
@@ -93,11 +93,11 @@ export const SearchContainer = styled.div`
 	> span {
 		color: var(--gray);
 		opacity: 0.7;
-		font-weight: 400;
+		font-weight: var(--regular);
 		font-size: 1rem;
 	}
 
-	@media (min-width: 700px) {
+	@media (min-width: var(--screen-md)) {
 		flex-direction: row;
 		justify-content: space-between;
 		gap: 0;	
@@ -139,7 +139,7 @@ export const SearchInput = styled.label<SearchInputProps>`
 		border: 0;
 		background: transparent;
 		color: var(--black);
-		font-weight: 600;
+		font-weight: var(--semi-bold);
 
 		&::placeholder {
 			color: var(--gray);
@@ -149,7 +149,7 @@ export const SearchInput = styled.label<SearchInputProps>`
 
 	button {
 		width: 7.5rem;
-		font-weight: 600;
+		font-weight: var(--semi-bold);
 		border: 0;
 		border-radius: 0.5rem;
 
@@ -182,15 +182,15 @@ export const SearchResults = styled.div`
 	grid-template-columns: 1fr;
 	gap: 1.5rem;
 
-	@media (min-width: 600px) {
+	@media (min-width: var(--screen-sm)) {
 		grid-template-columns: 1fr 1fr;
 	}
 
-	@media (min-width: 900px) {
+	@media (min-width: var(--screen-lg)) {
 		grid-template-columns: 1fr 1fr 1fr;
 	}
 
-	@media (min-width: 1240px) {
+	@media (min-width: var(--screen-xl)) {
 		grid-template-columns: repeat(4, calc((1120px / 4) - 1.5rem));	
 	}
 `

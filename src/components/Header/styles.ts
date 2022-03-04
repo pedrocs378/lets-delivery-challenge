@@ -11,7 +11,7 @@ export const Container = styled.header`
 
 	div {
 		width: 100%;
-		max-width: 1120px;
+		max-width: var(--screen-content);
 		padding: 0 1rem 0 6rem;
 
 		strong{
@@ -20,11 +20,10 @@ export const Container = styled.header`
 		}
 	}
 
-	@media (min-width: 500px) {
+	@media (min-width: var(--mobile)) {
 		height: 100%;
 
 		div {
-			display: block;
 			padding: 0 1rem;
 		}
 	}

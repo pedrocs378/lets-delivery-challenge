@@ -11,7 +11,7 @@ export const Container = styled.footer`
 
 	div {
 		width: 100%;
-		max-width: 1120px;
+		max-width: var(--screen-content);
 		margin: 0 auto;
 		padding: 0 1rem;
 
@@ -36,11 +36,7 @@ export const Container = styled.footer`
 		}
 	}
 
-	@media (min-width: 500px) {
+	@media (min-width: var(--mobile)) {
 		height: 100%;
-
-		div {
-			
-		}
 	}
 `
