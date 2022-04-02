@@ -23,7 +23,11 @@ function CharacterCardComponent({ character, isFavorited }: CharacterCardProps) 
 
 	return (
 		<S.Container>
-			<img src={character.image} alt={character.name} loading="lazy" />
+			<img
+				src={character.image}
+				alt={character.name}
+				loading="lazy"
+			/>
 
 			<S.CharacterInfo>
 				<div>

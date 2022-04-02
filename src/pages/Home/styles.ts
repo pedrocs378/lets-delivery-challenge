@@ -1,9 +1,5 @@
 import styled, { css } from "styled-components";
 
-type SearchInputProps = {
-	isFilled: boolean
-}
-
 export const Container = styled.main`
 	grid-area: content;
 	flex: 1;
@@ -103,6 +99,10 @@ export const SearchContainer = styled.div`
 		gap: 0;	
 	}
 `
+
+type SearchInputProps = {
+	isFilled: boolean
+}
 
 export const SearchInput = styled.label<SearchInputProps>`
 	display: flex;

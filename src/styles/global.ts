@@ -23,7 +23,7 @@ export default createGlobalStyle`
 		--semi-bold: 600;
 
 		// Breakpoints
-		--screen-content: 1120;
+		--screen-content: 1120px;
 	}
 
 	* {

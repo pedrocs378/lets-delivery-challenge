@@ -13,6 +13,7 @@ import { useFavorites } from '../../hooks/useFavorites'
 import { api } from '../../services/api'
 
 import * as S from './styles'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 
 type Character = {
 	id: number
@@ -40,6 +41,11 @@ export function Home() {
 	const [notFounded, setNotFounded] = useState(false)
 
 	const { favorites } = useFavorites()
+	const paginationPageRange = useMediaQuery(
+		'(max-width: 500px)',
+		1,
+		3
+	)
 
 	async function handleSearchCharacters(event: FormEvent) {
 		event.preventDefault()
@@ -90,7 +96,7 @@ export function Home() {
 							htmlFor="search"
 							isFilled={!!searchText.trim()}
 						>
-							<FiSearch />
+							<FiSearch aria-label="Icone de lupa" />
 							<input
 								id="search"
 								type="search"
@@ -137,7 +143,7 @@ export function Home() {
 
 						<Pagination
 							pageCount={characters.info.pages}
-							pageRangeDisplayed={3}
+							pageRangeDisplayed={paginationPageRange}
 							marginPagesDisplayed={1}
 							nextLabel="Próximo"
 							previousLabel="Anterior"
